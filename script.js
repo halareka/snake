@@ -31,7 +31,7 @@ let i = 0;
 let iii = 0;
 //
 document.addEventListener('keydown', function (event) {
-    if (event.key === 'D' || event.key === 'd'  || event.key === 'В' || event.key === 'в' || event.onclick == rightbtn) {
+    if (event.key === 'D' || event.key === 'd'  || event.key === 'В' || event.key === 'в') {
         if(right_act === false){
             if(game !== false){
                 clearInterval(intervalId);
