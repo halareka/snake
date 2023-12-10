@@ -121,7 +121,7 @@ function down(){
         if(x_down >= 8){x_down = -1;}
         x_down++;word_down = arr_word[x_down];
         document.getElementById(word_down + iii).style.background = "lime";
-        word = word_down;clear_move();break;   
+        word = word_down;clear_move(1);break;   
 
     }  
 }
@@ -131,7 +131,7 @@ function right(){
         iii = iii+1;
         if(iii == 0){iii = 1;}
         document.getElementById(word + iii).style.background = "lime";
-        clear_move();break;
+        clear_move(2);break;
     }
 }
 function left(){
@@ -140,7 +140,8 @@ function left(){
         iii = iii-1;
         if(iii == 0){iii = 1;}
         document.getElementById(word + iii).style.background = "lime";
-        clear_move();break;
+
+        clear_move(3);break;
     }
 }
 function up(){
@@ -149,43 +150,80 @@ function up(){
         if(x_down <= 0){x_down = 9;}
         x_down--;word_down = arr_word[x_down];
         document.getElementById(word_down + iii).style.background = "lime";
-        word = word_down;clear_move();break;   
+        word = word_down;clear_move(4);break;   
     }  
 }
-function clear_move(){
+function clear_move(x) {
+    let header;
+    switch (x) {
+        case 1:
+            header = "snakee_down";
+            break;
+        case 2:
+            header = "snakee_right";
+            break;
+        case 3:
+            header = "snakee_left";
+            break;
+        case 4:
+            header = "snakee_top";
+            break;
+    }
     var con = word + iii;
-    if(con == eat){
+    if (con == eat) {
         con_let_right = con_let_right - 1;
         eat = 0;
         rand_eat();
-    } 
+    }
     array.push(con);
-    if(array.length >= lengthh ){
+    if (array.length >= lengthh) {
         con_let_right++;
-        if(array[con_let_right] !== eat){
-            document.getElementById(array[con_let_right]).style.background = "white";
-            delete array[con_let_right];
+        if (array[con_let_right] !== eat) {
+            var element = document.getElementById(array[con_let_right]);
+            if (element !== null) {
+                element.style.background = "white";
+                delete array[con_let_right];
+            }
         }
+    }
+    let hea = array.length - 1;
+    let hea2 = array.length - 2;
+    let head = array[hea];
+    let head2 = array[hea2];
+    var element = document.getElementById(head);
+    if (element !== null) {
+        element.classList.add(header);
     }
     var lf = array.length - con_let_right - 1;
     var a = 2;
-    while(a <= lf){
+    while (a <= lf) {
         con_let = array.length - a;
         lftwo = array[con_let];
-        if(con == lftwo){
-            document.getElementById(con).style.background = "red";
-            stop();
-            dialog.showModal();
+        var element = document.getElementById(lftwo);
+        if (element !== null) {
+            element.classList.remove('snakee_top');
+            element.classList.remove('snakee_left');
+            element.classList.remove('snakee_down');
+            element.classList.remove('snakee_right');
+            if (lftwo == eat) {
+                
+                document.getElementById(eat).style.background = "lime";
+                eat = 0;
+                rand_eat();
+            }
+            if (con == lftwo) {
+                var element = document.getElementById(con);
+                if (element !== null) {
+                    dialog.showModal();
+                }
+            }
         }
         a++;
     }
 }
+
 function rand_eat(){
     eat = arr_word[Math.floor(Math.random() * 8) + 1] + Math.floor(Math.random() * 9 + 1);
     document.getElementById(eat).style.background = "orange";  
 }
 rand_eat();
-function stop(){
-    speed = 100000000;
-    up();
-}
