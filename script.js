@@ -4,8 +4,11 @@ const rightbtn = document.getElementById("rightbtn");
 const upbtn = document.getElementById("upbtn");
 const downbtn = document.getElementById("downbtn");
 
-
-
+let rec = document.getElementById("record");
+let score = document.getElementById("score");
+let scorell = 0;
+let recs = 0;
+localStorage.setItem("Rec", 1);
 //right
 var lftwo;
 let con_let_right = -2;
@@ -169,9 +172,14 @@ function clear_move(x) {
             header = "snakee_top";
             break;
     }
-    var con = word + iii;
+    let con = word + iii;
     if (con == eat) {
         con_let_right = con_let_right - 1;
+        scorell++;
+        if(scorell >= recs){
+            localStorage.setItem('r', scorell);
+        }
+        console.log(scorell);
         eat = 0;
         rand_eat();
     }
@@ -215,6 +223,8 @@ function clear_move(x) {
                 var element = document.getElementById(con);
                 if (element !== null) {
                     dialog.showModal();
+                    score.innerHTML = scorell;
+                    rec.innerHTML = localStorage.getItem('r');;
                 }
             }
         }
