@@ -8,7 +8,7 @@ let rec = document.getElementById("record");
 let score = document.getElementById("score");
 let scorell = 0;
 let recs = 0;
-localStorage.setItem("Rec", 1);
+localStorage.setItem("test", 1);
 //right
 var lftwo;
 let con_let_right = -2;
@@ -176,7 +176,7 @@ function clear_move(x) {
     if (con == eat) {
         con_let_right = con_let_right - 1;
         scorell++;
-        if(scorell >= recs){
+        if(scorell >= localStorage.getItem('r')){
             localStorage.setItem('r', scorell);
         }
         console.log(scorell);
@@ -224,7 +224,7 @@ function clear_move(x) {
                 if (element !== null) {
                     dialog.showModal();
                     score.innerHTML = scorell;
-                    rec.innerHTML = localStorage.getItem('r');;
+                    rec.innerHTML = localStorage.getItem('r');
                 }
             }
         }
