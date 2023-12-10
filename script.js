@@ -6,7 +6,7 @@ const downbtn = document.getElementById("downbtn");
 
 let rec = document.getElementById("record");
 let score = document.getElementById("score");
-let scorell = 0;
+let scorell = 3;
 let recs = 0;
 localStorage.setItem("test", 1);
 //right
