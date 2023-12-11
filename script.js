@@ -189,7 +189,7 @@ function clear_move(x) {
         if (array[con_let_right] !== eat) {
             var element = document.getElementById(array[con_let_right]);
             if (element !== null) {
-                element.style.background = "white";
+                element.style.background = "rgb(236,236,236)";
                 delete array[con_let_right];
             }
         }
