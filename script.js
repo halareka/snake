@@ -1,3 +1,4 @@
+localStorage.setItem("test", 1);
 //ужасное кол-во переменных
 const dialog = document.querySelector("dialog");
 const leftbtn = document.getElementById("leftbtn");
@@ -8,7 +9,6 @@ let rec = document.getElementById("record");
 let score = document.getElementById("score");
 let scorell = 3;
 let recs = 0;
-localStorage.setItem("test", 1);
 var lftwo;
 let con_let_right = -2;
 let con_let = -1;
