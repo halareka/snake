@@ -1,26 +1,21 @@
+//ужасное кол-во переменных
 const dialog = document.querySelector("dialog");
 const leftbtn = document.getElementById("leftbtn");
 const rightbtn = document.getElementById("rightbtn");
 const upbtn = document.getElementById("upbtn");
 const downbtn = document.getElementById("downbtn");
-
 let rec = document.getElementById("record");
 let score = document.getElementById("score");
 let scorell = 3;
 let recs = 0;
 localStorage.setItem("test", 1);
-//right
 var lftwo;
 let con_let_right = -2;
 let con_let = -1;
 const array = [];
-//
-//down
 let x_down = -1; 
 let word_down;
 const arr_word = ["A","B","C","D","E","F","G","H","I"];
-//
-//общие
 let eat;
 let lengthh = 3;
 let speed = 300;
@@ -28,11 +23,9 @@ let intervalId;
 let right_act = false;
 let up_act = false;
 let game = false;
-//
 let word = "A";
 let i = 0;
 let iii = 0;
-//
 document.addEventListener('keydown', function (event) {
     if (event.key === 'D' || event.key === 'd'  || event.key === 'В' || event.key === 'в') {
         if(right_act === false){
